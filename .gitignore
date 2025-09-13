@@ -5,7 +5,7 @@ yarn-error.log
 
 # Environment files
 .env
-client/bookstore/.env
+client/.env
 server/.env
 
 # Build files

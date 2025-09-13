@@ -1,0 +1,9 @@
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  --heading-font: 'Playfair Display', serif;
+  --decorative-font: 'Great Vibes', cursive;
+  --body-font: 'Lora', serif;
+}

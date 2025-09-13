@@ -1,0 +1,449 @@
+.container {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #333;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #fffaf0 0%, #fff5e6 100%);
+}
+
+/* Hero Section with Gold Background */
+.heroSection {
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  color: #2c3e50;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+  color: #2c3e50;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  font-weight: 400;
+  color: #2c3e50;
+}
+
+/* About Section */
+.aboutSection {
+  padding: 80px 20px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.aboutContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.aboutImage {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid #ffd700;
+}
+
+.aboutImage:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.textContent {
+  padding: 20px 0;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  position: relative;
+  font-weight: 600;
+}
+
+.sectionTitle::after {
+  content: none;
+  /* display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  margin-top: 15px;
+  border-radius: 2px; */
+}
+
+.aboutText {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.aboutText p {
+  margin-bottom: 1.8rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.aboutText p::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+/* Mission Section with Gold Background */
+.missionSection {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #fffaf0 0%, #ffefd5 100%);
+  position: relative;
+}
+
+.missionSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.missionContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.missionTitle {
+  font-size: 2.8rem;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  position: relative;
+  font-weight: 600;
+}
+
+.missionTitle::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.missionCard {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.missionCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  border-radius: 16px;
+  z-index: -1;
+}
+
+.missionCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.missionIcon {
+  font-size: 3.5rem;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.missionCard h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.missionCard p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* CTA Section with Gold Accents */
+.ctaSection {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffd700' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.ctaContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaTitle {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.ctaText {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  color: #ecf0f1;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButtonPrimary {
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  color: #2c3e50;
+  border: none;
+  padding: 18px 35px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.ctaButtonPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+  color: #2c3e50;
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid #ffd700;
+  padding: 18px 35px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaButtonSecondary:hover {
+  background: #ffd700;
+  color: #2c3e50;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .aboutImage {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  
+  .sectionTitle::after {
+    margin: 15px auto;
+  }
+  
+  .heroTitle {
+    font-size: 3rem;
+  }
+  
+  .missionGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 80px 20px;
+  }
+  
+  .aboutSection,
+  .missionSection,
+  .ctaSection {
+    padding: 60px 20px;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.3rem;
+  }
+  
+  .sectionTitle,
+  .missionTitle,
+  .ctaTitle {
+    font-size: 2.3rem;
+  }
+  
+  .missionGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ctaButtonPrimary,
+  .ctaButtonSecondary {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .aboutText p::before {
+    display: none;
+  }
+  
+  .aboutText p {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  
+  .sectionTitle,
+  .missionTitle,
+  .ctaTitle {
+    font-size: 2rem;
+  }
+  
+  .aboutText {
+    font-size: 1.05rem;
+  }
+  
+  .missionCard {
+    padding: 30px 20px;
+  }
+  
+  .missionIcon {
+    font-size: 3rem;
+  }
+  
+  .ctaButtonPrimary,
+  .ctaButtonSecondary {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Animation for content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aboutContent,
+.missionGrid,
+.ctaContent {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Gold accent elements */
+.goldAccent {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+/* Decorative gold elements */
+.goldBorder {
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+}
+
+.goldShadow {
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.ctaTitle::after{
+  content: none;
+}
