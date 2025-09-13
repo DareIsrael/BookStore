@@ -9,5 +9,5 @@ client/.env
 server/.env
 
 # Build files
-client/bookstore/dist/
+client/dist/
 server/dist/
