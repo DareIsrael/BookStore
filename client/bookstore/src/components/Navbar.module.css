@@ -1,0 +1,270 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  max-height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #f1f1f1;
+  border-color: #D4AF37;
+  box-shadow: 0 2px 8px rgba(5, 5, 5, 0.1);
+  
+}
+
+/* Logo Styles */
+.navbarLogo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #D4AF37;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.navbarLogo span:first-child {
+  font-style: italic;
+  font-weight: 400;
+  color: #333;
+}
+
+.navbarLogo span:last-child {
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+/* Navigation Links */
+.navbarLinks {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbarLink {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.navbarLink:hover {
+  background: #ede5ca;
+  color: #D4AF37;
+}
+
+.navbarLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #D4AF37;
+  transition: all 0.2s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.navbarLink:hover::after {
+  width: 80%;
+}
+
+/* Auth Buttons */
+.registerButton {
+  background: #D4AF37;
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.registerButton:hover {
+  background: #ffffff;
+  color: #D4AF37;
+  transform: translateY(-2px);
+}
+
+.logoutButton {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+/* Hamburger Menu */
+.navbarToggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #D4AF37;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Hamburger animation */
+.navbarToggle.open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.navbarToggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbarToggle.open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navbarLinks {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbarLinks {
+    gap: 0.8rem;
+  }
+  
+  .navbarLink {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  
+  .navbarLogo {
+    font-size: 1.5rem;
+    margin-left: 0;
+  }
+  
+  .navbarLinks {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    gap: 0.5rem;
+  }
+
+  .navbarLinks.open {
+    display: flex;
+  }
+
+  .navbarLink {
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .navbarLink:hover {
+    background: #f8f5ff;
+  }
+
+  .navbarLink::after {
+    display: none;
+  }
+
+  .registerButton,
+  .logoutButton {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+  }
+
+  .navbarToggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .navbarLogo {
+    font-size: 1.3rem;
+  }
+  
+  .navbarLinks {
+    padding: 0.5rem;
+  }
+  
+  .navbarLink {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .bar {
+    width: 20px;
+    height: 2px;
+  }
+}
+
+/* Focus states for accessibility */
+.navbarLink:focus,
+.registerButton:focus,
+.logoutButton:focus,
+.navbarToggle:focus {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+.navbarLinks {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbarLink,
+.registerButton,
+.logoutButton {
+  transition: all 0.3s ease;
+}

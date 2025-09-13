@@ -1,0 +1,152 @@
+.checkoutButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #D4AF37 0%, #d2a30a 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.checkoutButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+  background: linear-gradient(135deg, #D4AF37 0%, #dfae0b 100%);
+}
+
+.checkoutButton:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(74, 144, 226, 0.3);
+}
+
+.checkoutButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Loading state */
+.checkoutButton.loading {
+  background: linear-gradient(135deg, #D4AF37 0%, #d6a606 100%);
+  padding-right: 2.8rem;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Cart icon */
+.cartIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Pulse animation for attention */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(74, 144, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+  }
+}
+
+.checkoutButton:not(.loading) {
+  animation: pulse 2s infinite;
+}
+
+/* Ripple effect */
+.checkoutButton::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #D4AF37;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.checkoutButton:active::after {
+  width: 100px;
+  height: 100px;
+}
+
+/* Add these to your existing CheckoutButton.module.css */
+
+/* Modal styles (if you want to keep them in the same file) */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .checkoutButton {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1.1rem;
+  }
+  
+  .checkoutButton.loading {
+    padding-right: 3.2rem;
+  }
+}
+
+/* Focus state for accessibility */
+.checkoutButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #D4AF37;
+}

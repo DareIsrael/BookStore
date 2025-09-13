@@ -1,0 +1,13 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+client/bookstore/.env
+server/.env
+
+# Build files
+client/bookstore/dist/
+server/dist/
