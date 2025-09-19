@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
-          <h3>Winifred Fasuyi</h3>
+          <h3>Winifred Fagbolagun</h3>
           <p>Inspiring women of faith and nurturing children in Christ</p>
         </div>
         
@@ -47,7 +47,7 @@ const Footer = () => {
       </div>
       
       <div className={styles.footerBottom}>
-        <p>&copy; {new Date().getFullYear()} Winifred Fasuyi. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Winifred Fagbolagun. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -50,8 +50,8 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.navbarLogo} onClick={closeMenu}>
-        <span>Book</span>
-        <span>STORE</span>
+        <span>Winifred</span>
+        <span>Fagbolagun</span>
       </Link>
       
       <div className={`${styles.navbarLinks} ${isOpen ? styles.open : ''}`}>

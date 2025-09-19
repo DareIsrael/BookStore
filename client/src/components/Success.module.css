@@ -411,7 +411,3 @@
     font-size: 1rem;
   }
 }
-
-h2::after {
-  content: none;
-}

@@ -91,12 +91,36 @@
 //   );
 // }
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CheckoutButton from "./CheckoutButton";
 import styles from "./BookCard.module.css";
 
 export default function BookCard({ book }) {
+
+  const [currencySign, setCurrencySign] = useState("");
+
+  useEffect(() => {
+      if (book?.currency) {
+        switch (book.currency.toLowerCase()) {
+          case "usd":
+            setCurrencySign("$");
+            break;
+          case "gbp":
+            setCurrencySign("£");
+            break;
+          case "eur":
+            setCurrencySign("€");
+            break;
+          case "cad":
+            setCurrencySign("CA$");
+            break;
+          default:
+            setCurrencySign("");
+        }
+      }
+    }, [book]);
+
   return (
     <div className={styles.card}>
       {/* Book Cover Image */}
@@ -121,7 +145,7 @@ export default function BookCard({ book }) {
         {/* Price display */}
         {book.price && (
           <div className={styles.priceContainer}>
-            <span className={styles.price}>${book.price.toFixed(2)}</span>
+            <span className={styles.price}>{currencySign}{book.price.toFixed(2)} {book.currency?.toUpperCase()}</span>
           </div>
         )}
         

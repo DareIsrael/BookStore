@@ -75,6 +75,7 @@ export default function BookList() {
         // Handle different response structures
         const booksData = res.data.data || res.data || [];
         setBooks(booksData);
+       
       })
       .catch(err => {
         console.error("Error fetching books:", err);
@@ -85,12 +86,14 @@ export default function BookList() {
       });
   }, []);
 
+  // console.log()
+
   return (
     <div className={styles.container}>
       {/* Hero Section with Gold Background */}
       <div className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <h1 className={styles.title}>Our Collection</h1>
+          <h1 className={styles.title}>Our Collections</h1>
           <p className={styles.subtitle}>
             Discover inspiring Christian books that nurture faith and empower 
             both children and adults in their spiritual journey

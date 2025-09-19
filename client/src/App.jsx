@@ -68,6 +68,7 @@ function App() {
             <Route path="/reset-password/:token" element={<ResetPassword />} /> 
             <Route path="/checkout/success" element={<Success />} /> 
             <Route path="/admindashboard" element={<AdminDashboard />} /> 
+            <Route path="/success" element={<Success />} />
             
             <Route path="/dashboard" element={
                   <PrivateRoute>
