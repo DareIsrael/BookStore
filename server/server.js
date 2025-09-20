@@ -15,7 +15,24 @@ const adminSummaryRoutes = require("./routes/adminSummaryRoutes");
 
 const app = express();
 app.use(helmet());
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+// app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+
+app.use(cors({
+  origin: [process.env.CLIENT_URL_LOCAL, process.env.CLIENT_URL_PRO], // Replace with your actual frontend URLs
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+}));
+
+
+
+
+// cors testing
+
+
+
+
+
+// cors testing
+
 app.use(morgan("dev"));
 app.use("/orders/webhook", express.raw({ type: "application/json" }), orderRoutes);
 app.use(express.json({ limit: "10mb" }));
