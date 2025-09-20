@@ -4,6 +4,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+const SpinUp = require("./SpinUp")()
 
 dotenv.config();
 const userRoutes = require("./routes/User");
@@ -22,16 +23,7 @@ app.use(cors({
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
-
-
-
-// cors testing
-
-
-
-
-
-// cors testing
+// SpinUp();
 
 app.use(morgan("dev"));
 app.use("/orders/webhook", express.raw({ type: "application/json" }), orderRoutes);
