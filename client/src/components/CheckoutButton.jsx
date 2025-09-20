@@ -450,7 +450,7 @@ export default function CheckoutButton({ item }) {
         onClick={handleCheckout}
         disabled={isLoading}
       >
-        {isLoading ? "Processing..." : `Buy Now - $${item.price}`}
+        {isLoading ? "Processing..." : "Buy Now" }
       </button>
 
       <LoginModal
