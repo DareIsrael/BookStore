@@ -3,6 +3,8 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Order = require('../models/Order');
 const Book = require('../models/Book');
 const axios = require("axios");
+const { sendEmail } = require('../utils/sendEmail');
+
 
 
 
@@ -176,6 +178,8 @@ exports.createCheckoutSession = async (req, res) => {
 };
 
 
+
+
 exports.verifySession = async (req, res) => {
   try {
     const { sessionId } = req.params;
@@ -188,7 +192,7 @@ exports.verifySession = async (req, res) => {
     }
 
     // Find the order with this session
-    const order = await Order.findOne({ stripeSessionId: sessionId });
+    const order = await Order.findOne({ stripeSessionId: sessionId }).populate("userId", "name email");
 
     if (!order) {
       return res.status(404).json({ success: false, message: "Order not found" });
@@ -199,6 +203,25 @@ exports.verifySession = async (req, res) => {
       order.paymentStatus = "completed";
       order.orderStatus = "processing";
       await order.save();
+
+      // Send email notification to user
+      try {
+        await sendEmail({
+          to: order.userId.email,
+          subject: "Order Received",
+          text: `Hi ${order.userId.name}, your order #${order._id} has been received and is now being processed.`,
+          html: `
+            <p>Hi ${order.userId.name},</p>
+            <p>Thank you for your order! Your order <strong>#${order._id}</strong> has been received and is now being processed.</p>
+            <p>Total Amount: $${order.totalAmount.toFixed(2)}</p>
+            <p>We will notify you once it is shipped.</p>
+            <p>— The Team</p>
+          `,
+        });
+        console.log("Order confirmation email sent to:", order.userId.email);
+      } catch (emailError) {
+        console.error("Failed to send order confirmation email:", emailError);
+      }
     }
 
     res.json({
@@ -216,6 +239,51 @@ exports.verifySession = async (req, res) => {
     res.status(500).json({ success: false, message: "Error verifying session" });
   }
 };
+
+
+// exports.verifySession = async (req, res) => {
+//   try {
+//     const { sessionId } = req.params;
+
+//     // Fetch session from Stripe
+//     const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+//     if (!session) {
+//       return res.status(404).json({ success: false, message: "Session not found" });
+//     }
+
+//     // Find the order with this session
+//     const order = await Order.findOne({ stripeSessionId: sessionId });
+
+//     if (!order) {
+//       return res.status(404).json({ success: false, message: "Order not found" });
+//     }
+
+//     // Update order payment status if successful
+//     if (session.payment_status === "paid") {
+//       order.paymentStatus = "completed";
+//       order.orderStatus = "processing";
+//       await order.save();
+//     }
+
+//     res.json({
+//       success: true,
+//       order,
+//       stripe: {
+//         paymentStatus: session.payment_status,
+//         amount: session.amount_total / 100,
+//         email: session.customer_details?.email,
+//       },
+//     });
+
+//   } catch (err) {
+//     console.error("Verify session error:", err.message);
+//     res.status(500).json({ success: false, message: "Error verifying session" });
+//   }
+// };
+
+
+
 
 // @desc    Handle Stripe webhook
 // @route   POST /api/orders/webhook

@@ -12,6 +12,7 @@ const bookRoutes = require("./routes/books");
 const orderRoutes = require("./routes/orders");
 // const AdminDashboard = require ("./routes/AdminDashboardRoutes.js");
 const adminSummaryRoutes = require("./routes/adminSummaryRoutes");
+const contactRoutes = require('./routes/contact');
 
 
 const app = express();
@@ -34,7 +35,7 @@ app.use("/books", bookRoutes);
 app.use("/orders", orderRoutes);
 // app.use("/api/admin", AdminDashboard);
 app.use("/admin/summary", adminSummaryRoutes);
-
+app.use('/contact', contactRoutes);
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: err.message });
