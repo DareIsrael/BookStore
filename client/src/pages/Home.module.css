@@ -25,6 +25,12 @@
   padding: 0 20px;
 }
 
+/* iOS hack */
+@supports (-webkit-overflow-scrolling: touch) {
+  .hero {
+    background-attachment: scroll;
+  }
+}
 .heroContent {
   max-width: 800px;
   padding-top: 60px;
