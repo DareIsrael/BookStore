@@ -173,7 +173,7 @@ export default function VideoDetails() {
           </div>
 
           {/* Features */}
-          <div className={styles.features}>
+          {/* <div className={styles.features}>
             <h3 className={styles.sectionTitle}>What You'll Learn</h3>
             <ul className={styles.featuresList}>
               <li>Practical, engaging lessons</li>
@@ -182,7 +182,7 @@ export default function VideoDetails() {
               <li>Exclusive access after purchase</li>
               <li>Bonus materials sent to your email</li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Price and Button Container */}
           <div className={styles.priceContainer}>

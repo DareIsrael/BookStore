@@ -877,7 +877,7 @@ export default function BookDetails() {
           </div>
 
           {/* Features */}
-          <div className={styles.features}>
+          {/* <div className={styles.features}>
             <h3 className={styles.sectionTitle}>What You'll Get</h3>
             <ul className={styles.featuresList}>
               <li>Beautiful, faith-inspired illustrations</li>
@@ -886,7 +886,7 @@ export default function BookDetails() {
               <li>Age-appropriate content for children</li>
               <li>Digital bonus content with purchase</li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Price and Button Container */}
           <div className={styles.priceContainer}>
