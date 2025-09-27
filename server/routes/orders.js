@@ -28,4 +28,4 @@ router.get('/', protect, authorize('admin'), getAllOrders);
 
 router.put("/:id/status", protect, authorize("admin"), updateOrderStatus);
 
-module.exports = router;
+module.exports = router; 

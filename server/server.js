@@ -10,9 +10,11 @@ dotenv.config();
 const userRoutes = require("./routes/User");
 const bookRoutes = require("./routes/books");
 const orderRoutes = require("./routes/orders");
+const videoRoutes = require("./routes/videos");
 // const AdminDashboard = require ("./routes/AdminDashboardRoutes.js");
 const adminSummaryRoutes = require("./routes/adminSummaryRoutes");
 const contactRoutes = require('./routes/contact');
+const healthRoutes = require("./routes/health");
 
 
 const app = express();
@@ -33,9 +35,12 @@ app.use(express.json({ limit: "10mb" }));
 app.use("/users", userRoutes);
 app.use("/books", bookRoutes);
 app.use("/orders", orderRoutes);
+app.use("/videos", videoRoutes)
 // app.use("/api/admin", AdminDashboard);
 app.use("/admin/summary", adminSummaryRoutes);
 app.use('/contact', contactRoutes);
+app.use("/health", healthRoutes);
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: err.message });

@@ -99,13 +99,13 @@ async function sendWelcomeEmail(user = {}) {
   }
 
   const subject = `Welcome to our store, ${user.name || "friend"}!`;
-  const text = `Hi ${user.name || ""},\n\nThanks for creating an account. Visit us: ${process.env.CLIENT_URL_LOCAL ||
+  const text = `Hi ${user.name || ""},\n\nThanks for creating an account. Visit us: ${process.env.CLIENT_URL_PRO ||
     "your-site-url"}\n\n— Team`;
   const html = `
     <div style="font-family: Arial, Helvetica, sans-serif; color:#333;">
       <h2>Hello ${user.name || "Friend"},</h2>
       <p>Welcome — thank you for signing up. We're glad you're here.</p>
-      <p><a href="${process.env.CLIENT_URL_LOCAL || "#"}">Visit our store</a></p>
+      <p><a href="${process.env.CLIENT_URL_PRO || "#"}">Visit our store</a></p>
       <p style="margin-top:20px">Blessings,<br/><strong>The Team</strong></p>
     </div>
   `;
