@@ -511,7 +511,7 @@ const Home = () => {
             <hr></hr>
             <div className={styles.introText}>
               <p>
-                I'm Winifred — a mom to two little lights of the world, a Goal Coach for godly ambitious women, and the author of Christian kids' books that spread God's love and light.
+                I'm Winifred — a wife, a mom to two little lights of the world, a Goal Coach for godly ambitious women, and the author of Christian kids' books that spread God's love and light.
               </p>
               <p>
                 As a volunteer kids' educator in church, I've seen firsthand how open little hearts are to God's truth. That's why I create resources that make Scripture fun, simple, and alive — helping every child see their true identity in Christ and supporting parents in raising faith-filled kids.

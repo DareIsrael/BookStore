@@ -47,6 +47,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Success from "./pages/Success";
 import AdminDashboard from "./pages/AdminDashboard";
+import VideoList from "./pages/VideoList";
+import VideoDetails from "./pages/VideoDetails";
 
 function App() {
   return (
@@ -69,6 +71,8 @@ function App() {
             <Route path="/checkout/success" element={<Success />} /> 
             <Route path="/admindashboard" element={<AdminDashboard />} /> 
             <Route path="/success" element={<Success />} />
+            <Route path="/videos" element={<VideoList />} />
+            <Route path="/videos/:id" element={<VideoDetails />} />
             
             <Route path="/dashboard" element={
                   <PrivateRoute>

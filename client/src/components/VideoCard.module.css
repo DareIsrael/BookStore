@@ -1,0 +1,373 @@
+/* VideoCard.module.css */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  border: 1px solid #f0f0f0;
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #D4AF37;
+}
+
+.coverImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.card:hover .coverImage {
+  transform: scale(1.05);
+}
+
+.noPreview {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.content {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3rem;
+}
+
+.description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+/* Footer with price and actions */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 16px;
+  margin-top: auto;
+  gap: 12px;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #D4AF37;
+  margin: 0;
+  
+}
+
+.currency {
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: 2px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.previewLink {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #D4AF37;
+  border: 2px solid #D4AF37;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.previewLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.previewLink:hover {
+  background-color: #D4AF37;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.previewLink:hover::before {
+  left: 100%;
+}
+
+.previewLink:active {
+  transform: translateY(0);
+}
+
+/* Video player enhancements */
+.coverImage::-webkit-media-controls {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+
+.coverImage::-webkit-media-controls-play-button {
+  background-color: #D4AF37;
+  border-radius: 50%;
+}
+
+.coverImage::-webkit-media-controls-current-time-display,
+.coverImage::-webkit-media-controls-time-remaining-display {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Loading state for video */
+.videoLoading {
+  position: relative;
+}
+
+.videoLoading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #D4AF37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Premium badge for paid videos */
+.premiumBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #D4AF37 0%, #b8941f 100%);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Free video indicator */
+.freeBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .coverImage {
+    height: 200px;
+  }
+  
+  .title {
+    font-size: 1.1rem;
+    min-height: 2.5rem;
+  }
+  
+  .content {
+    padding: 12px;
+  }
+  
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0 12px 12px;
+  }
+  
+  .priceContainer {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .price {
+    font-size: 1.2rem;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
+  
+  .previewLink {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    border-radius: 8px;
+  }
+  
+  .coverImage {
+    height: 180px;
+  }
+  
+  .noPreview {
+    height: 180px;
+    font-size: 0.8rem;
+  }
+  
+  .title {
+    font-size: 1rem;
+    min-height: 2.2rem;
+  }
+  
+  .description {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+  }
+  
+  .price {
+    font-size: 1.1rem;
+  }
+  
+  .previewLink {
+    padding: 10px;
+    font-size: 0.9rem;
+    min-width: auto;
+  }
+  
+  .premiumBadge,
+  .freeBadge {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Animation for card appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.card {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Staggered animation for multiple cards */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Dark mode support */
+/* @media (prefers-color-scheme: dark) {
+  .card {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+  
+  .title {
+    color: #f0f0f0;
+  }
+  
+  .description {
+    color: #ccc;
+  }
+  
+  .noPreview {
+    background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+    color: #ccc;
+  }
+  
+  .coverImage {
+    background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+  }
+} */
+
+/* Focus styles for accessibility */
+.previewLink:focus {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+.card:focus-within {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}

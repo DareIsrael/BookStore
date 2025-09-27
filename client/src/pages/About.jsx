@@ -34,7 +34,7 @@ const About = () => {
             <h2 className={styles.sectionTitle}>My Story</h2>
             <div className={styles.aboutText}>
               <p>
-                Hi, I'm Winifred — a mom to two little lights of the world, a Goal Coach for godly ambitious women, and an author passionate about helping children discover who they are in Christ.
+                Hi, I'm Winifred — a wife, a mom to two little lights of the world, a Goal Coach for godly ambitious women, and an author passionate about helping children discover who they are in Christ.
               </p>
               <p>
                 My story is deeply rooted in faith. From a young age, I've believed that our lives are meant to shine as lights for God, and I've carried that conviction into motherhood, ministry, and my work.

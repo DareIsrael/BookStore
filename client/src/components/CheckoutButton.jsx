@@ -342,6 +342,142 @@
 // }
 
 
+// import React, { useState } from "react";
+// import axios from "axios";
+// import { useAuth } from "../context/AuthContext";
+// import { stripePromise } from "../services/stripe";
+// import LoginModal from "./LoginModal";
+// import RegisterModal from "./RegisterModal";
+// import AddressModal from "../pages/AddressModal";
+// import styles from "./CheckoutButton.module.css";
+
+// export default function CheckoutButton({ item }) {
+//   const { user } = useAuth();
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [showLoginModal, setShowLoginModal] = useState(false);
+//   const [showRegisterModal, setShowRegisterModal] = useState(false);
+//   const [showAddressModal, setShowAddressModal] = useState(false);
+
+//   const handleCheckout = () => {
+//     if (!user) {
+//       setShowLoginModal(true);
+//       return;
+//     }
+//     setShowAddressModal(true);
+//   };
+
+//   const handleLoginSuccess = () => {
+//     setShowLoginModal(false);
+//     setShowAddressModal(true);
+//   };
+
+//   const handleSwitchToRegister = () => {
+//     setShowLoginModal(false);
+//     setShowRegisterModal(true);
+//   };
+
+//   const handleRegisterSuccess = () => {
+//     setShowRegisterModal(false);
+//     setShowAddressModal(true);
+//   };
+
+//   const handleSwitchToLogin = () => {
+//     setShowRegisterModal(false);
+//     setShowLoginModal(true);
+//   };
+
+//   const processCheckout = async (addressData) => {
+//     setIsLoading(true);
+
+//     try {
+//       const token = localStorage.getItem("token");
+
+//       // Prepare address in the format your backend expects
+//       const address = {
+//         name: addressData.name || `${user.firstName} ${user.lastName}`,
+//         phone: addressData.phone,
+//         street: addressData.street,
+//         city: addressData.city,
+//         state: addressData.state,
+//         postalCode: addressData.postalCode,
+//         country: addressData.country
+//       };
+
+//       const res = await axios.post(
+//         `${import.meta.env.VITE_API_URL}/orders/create-checkout-session`,
+//         {
+//           items: [
+//             {
+//               bookId: item._id,
+//               quantity: 1,
+//             },
+//           ],
+//           address, // Send address data
+//         },
+//         {
+//           headers: { Authorization: `Bearer ${token}` },
+//         }
+//       );
+
+//       const data = res.data;
+//       if (!data.success) {
+//         alert(data.message || "Checkout failed");
+//         return;
+//       }
+
+//       const stripe = await stripePromise;
+//       const { error } = await stripe.redirectToCheckout({
+//         sessionId: data.sessionId,
+//       });
+
+//       if (error) {
+//         console.error("Stripe redirect error:", error);
+//         alert("Redirect to checkout failed");
+//       }
+//     } catch (error) {
+//       console.error("Checkout error:", error.response?.data || error.message);
+//       alert("Something went wrong with checkout");
+//     } finally {
+//       setIsLoading(false);
+//       setShowAddressModal(false);
+//     }
+//   };
+
+//   return (
+//     <>
+//       <button
+//         className={`${styles.checkoutButton} ${isLoading ? styles.loading : ""}`}
+//         onClick={handleCheckout}
+//         disabled={isLoading}
+//       >
+//         {isLoading ? "Processing..." : "Buy Now" }
+//       </button>
+
+//       <LoginModal
+//         isOpen={showLoginModal}
+//         onClose={() => setShowLoginModal(false)}
+//         onSwitchToRegister={handleSwitchToRegister}
+//         onLoginSuccess={handleLoginSuccess}
+//       />
+
+//       <RegisterModal
+//         isOpen={showRegisterModal}
+//         onClose={() => setShowRegisterModal(false)}
+//         onSwitchToLogin={handleSwitchToLogin}
+//         onRegisterSuccess={handleRegisterSuccess}
+//       />
+
+//       <AddressModal
+//         isOpen={showAddressModal}
+//         onClose={() => setShowAddressModal(false)}
+//         onSubmit={processCheckout}
+//         user={user}
+//       />
+//     </>
+//   );
+// }
+
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
@@ -358,17 +494,32 @@ export default function CheckoutButton({ item }) {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showAddressModal, setShowAddressModal] = useState(false);
 
+  // ✅ detect if item is a video
+  const isVideo = item && item.hasOwnProperty("introVideo");
+
   const handleCheckout = () => {
     if (!user) {
       setShowLoginModal(true);
       return;
     }
-    setShowAddressModal(true);
+
+    if (isVideo) {
+      // 🎥 Direct checkout for videos (no address)
+      processCheckout();
+    } else {
+      // 📚 Require address for books
+      setShowAddressModal(true);
+    }
   };
 
   const handleLoginSuccess = () => {
     setShowLoginModal(false);
-    setShowAddressModal(true);
+    handleCheckout();
+  };
+
+  const handleRegisterSuccess = () => {
+    setShowRegisterModal(false);
+    handleCheckout();
   };
 
   const handleSwitchToRegister = () => {
@@ -376,50 +527,46 @@ export default function CheckoutButton({ item }) {
     setShowRegisterModal(true);
   };
 
-  const handleRegisterSuccess = () => {
-    setShowRegisterModal(false);
-    setShowAddressModal(true);
-  };
-
   const handleSwitchToLogin = () => {
     setShowRegisterModal(false);
     setShowLoginModal(true);
   };
 
-  const processCheckout = async (addressData) => {
+  const processCheckout = async (addressData = {}) => {
     setIsLoading(true);
 
     try {
       const token = localStorage.getItem("token");
 
-      // Prepare address in the format your backend expects
-      const address = {
-        name: addressData.name || `${user.firstName} ${user.lastName}`,
-        phone: addressData.phone,
-        street: addressData.street,
-        city: addressData.city,
-        state: addressData.state,
-        postalCode: addressData.postalCode,
-        country: addressData.country
+      const body = {
+        items: [
+          isVideo
+            ? { videoId: item._id }        // videos don't need quantity/address
+            : { bookId: item._id, quantity: 1 },
+        ],
       };
+
+      if (!isVideo) {
+        // only add address for books
+        body.address = {
+          name: addressData.name || `${user.firstName} ${user.lastName}`,
+          phone: addressData.phone,
+          street: addressData.street,
+          city: addressData.city,
+          state: addressData.state,
+          postalCode: addressData.postalCode,
+          country: addressData.country,
+        };
+      }
 
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/orders/create-checkout-session`,
-        {
-          items: [
-            {
-              bookId: item._id,
-              quantity: 1,
-            },
-          ],
-          address, // Send address data
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        body,
+        { headers: { Authorization: `Bearer ${token}` } }
       );
 
       const data = res.data;
+
       if (!data.success) {
         alert(data.message || "Checkout failed");
         return;
@@ -434,6 +581,7 @@ export default function CheckoutButton({ item }) {
         console.error("Stripe redirect error:", error);
         alert("Redirect to checkout failed");
       }
+
     } catch (error) {
       console.error("Checkout error:", error.response?.data || error.message);
       alert("Something went wrong with checkout");
@@ -450,7 +598,7 @@ export default function CheckoutButton({ item }) {
         onClick={handleCheckout}
         disabled={isLoading}
       >
-        {isLoading ? "Processing..." : "Buy Now" }
+        {isLoading ? "Processing..." : "Buy Now"}
       </button>
 
       <LoginModal
@@ -467,12 +615,15 @@ export default function CheckoutButton({ item }) {
         onRegisterSuccess={handleRegisterSuccess}
       />
 
-      <AddressModal
-        isOpen={showAddressModal}
-        onClose={() => setShowAddressModal(false)}
-        onSubmit={processCheckout}
-        user={user}
-      />
+      {/* Show address modal only for books */}
+      {!isVideo && (
+        <AddressModal
+          isOpen={showAddressModal}
+          onClose={() => setShowAddressModal(false)}
+          onSubmit={processCheckout}
+          user={user}
+        />
+      )}
     </>
   );
 }
