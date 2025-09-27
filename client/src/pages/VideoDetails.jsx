@@ -195,7 +195,7 @@ export default function VideoDetails() {
                 </span>
               </p>
               <p className={styles.shipping}>
-                Digital access delivered to your email
+                Digital access delivered to your dashboard
               </p>
             </div>
 
