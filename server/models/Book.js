@@ -7,7 +7,8 @@ const bookSchema = new mongoose.Schema({
   description: String,
   pdf: { type: String },
   price: { type: Number, required: true },       // in cents
-  currency: { type: String, default: "usd" }
+  currency: { type: String, default: "usd" },
+  // slug: { type: String, unique: true }, // ✅ new field
 }, { timestamps: true });
 
 module.exports = mongoose.model("Book", bookSchema);

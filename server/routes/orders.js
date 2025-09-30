@@ -16,7 +16,7 @@ const router = express.Router();
 router.post('/create-checkout-session', protect, createCheckoutSession);
 
 // Stripe webhook (public route)
-router.post('/webhook', express.raw({ type: 'application/json' }), stripeWebhook);
+// router.post('/webhook', express.raw({ type: 'application/json' }), stripeWebhook);
 
 // Get logged-in user orders
 router.get('/my-orders', protect, getMyOrders);

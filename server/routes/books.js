@@ -47,16 +47,19 @@
 
 
 const express = require("express");
-const { getBooks, createBook, updateBook, deleteBook, getBookById } = require("../controllers/bookController");
+const { getBooks, createBook, updateBook, deleteBook, getBookById, getBookBySlug } = require("../controllers/bookController");
 const { protect, authorize } = require("../middleware/authMiddleware");
 const upload = require("../middleware/multer");
 
 const router = express.Router();
 
 router.get("/", getBooks);
+// router.get("/:slug", getBookBySlug);
 router.post("/", protect, authorize("admin"), upload.fields([{ name: "coverImage", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), createBook);
 router.get("/:id", getBookById);
 router.put("/:id", protect, authorize("admin"), upload.fields([{ name: "coverImage", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), updateBook);
 router.delete("/:id", protect, authorize("admin"), deleteBook);
+
+
 
 module.exports = router;

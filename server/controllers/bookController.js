@@ -179,6 +179,7 @@
 const Book = require("../models/Book");
 const cloudinary = require("../config/cloudinary");
 const streamifier = require("streamifier");
+// const slugify = require("slugify");
 
 
 exports.createBook = async (req, res) => {
@@ -221,6 +222,8 @@ exports.createBook = async (req, res) => {
       });
     }
 
+    // const slug = slugify(name, { lower: true, strict: true });
+
     const newBook = new Book({
       name,
       author,
@@ -229,6 +232,7 @@ exports.createBook = async (req, res) => {
       description,
       price: parseFloat(price),
       currency,
+      // slug,
     });
 
     await newBook.save();
@@ -281,6 +285,19 @@ exports.createBook = async (req, res) => {
 //     res.status(500).json({ success: false, message: "Server error" });
 //   }
 // };
+
+// @desc   Get book by slug
+// @route  GET /api/books/slug/:slug
+// exports.getBookBySlug = async (req, res) => {
+//   try {
+//     const book = await Book.findOne({ slug: req.params.slug });
+//     if (!book) return res.status(404).json({ message: "Book not found" });
+//     res.json({ success: true, data: book });
+//   } catch (err) {
+//     res.status(500).json({ message: "Server error" });
+//   }
+// };
+
 
 // @desc   Get all books
 // @route  GET /api/books

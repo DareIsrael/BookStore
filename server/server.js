@@ -17,7 +17,9 @@ const contactRoutes = require('./routes/contact');
 const healthRoutes = require("./routes/health");
 
 
+
 const app = express();
+
 app.use(helmet());
 // app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
@@ -29,7 +31,7 @@ app.use(cors({
 // SpinUp();
 
 app.use(morgan("dev"));
-app.use("/orders/webhook", express.raw({ type: "application/json" }), orderRoutes);
+app.use("/orders/webhook", express.raw({ type: "application/json" }),  require("./controllers/orderController").stripeWebhook);
 app.use(express.json({ limit: "10mb" }));
 
 app.use("/users", userRoutes);
