@@ -105,7 +105,7 @@ export default function VideoCard({ video }) {
       )}
 
       {/* ✅ PDF Download Link */}
-      {video.pdf && (
+      {/* {video.pdf && (
         <a
           href={video.pdf}
           target="_blank"
@@ -114,7 +114,7 @@ export default function VideoCard({ video }) {
         >
           📕 Download PDF
         </a>
-      )}
+      )} */}
 
       {/* Video Info */}
       <div className={styles.content}>
