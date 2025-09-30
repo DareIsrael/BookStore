@@ -5,6 +5,7 @@ const bookSchema = new mongoose.Schema({
   author: { type: String, required: true },       // new field
   coverImage: { type: String, required: true },   // new field, store image URL
   description: String,
+  pdf: { type: String },
   price: { type: Number, required: true },       // in cents
   currency: { type: String, default: "usd" }
 }, { timestamps: true });

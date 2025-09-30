@@ -36,7 +36,8 @@ const fileFilter = (req, file, cb) => {
   // Allow both images and videos
   if (
     file.mimetype.startsWith('image/') ||
-    file.mimetype.startsWith('video/')
+    file.mimetype.startsWith('video/') ||
+    file.mimetype === 'application/pdf'
   ) {
     cb(null, true);
   } else {

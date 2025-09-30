@@ -5,33 +5,44 @@ const streamifier = require("streamifier");
 // @desc   Create a new video
 // @route  POST /api/videos
 // @access Admin
+// controllers/videoController.js
 exports.createVideo = async (req, res) => {
   try {
     const { title, description, price, currency, videoUrl } = req.body;
 
-    if (!req.file) {
+    if (!req.files || !req.files.introVideo) {
       return res.status(400).json({ message: "Intro video is required" });
     }
 
-    // Upload intro video to Cloudinary
-    const result = await new Promise((resolve, reject) => {
+    // ✅ Upload intro video
+    const videoResult = await new Promise((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
-        { folder: "videos", resource_type: "auto" },
-        (error, result) => {
-          if (error) return reject(error);
-          resolve(result);
-        }
+        { folder: "videos", resource_type: "video" },
+        (error, result) => (error ? reject(error) : resolve(result))
       );
-      streamifier.createReadStream(req.file.buffer).pipe(stream);
+      streamifier.createReadStream(req.files.introVideo[0].buffer).pipe(stream);
     });
+
+    // ✅ Upload PDF if provided
+    let pdfResult = null;
+    if (req.files.pdf) {
+      pdfResult = await new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: "pdfs", resource_type: "raw" },
+          (error, result) => (error ? reject(error) : resolve(result))
+        );
+        streamifier.createReadStream(req.files.pdf[0].buffer).pipe(stream);
+      });
+    }
 
     const newVideo = new Video({
       title,
       description,
       price: parseFloat(price),
       currency,
-      introVideo: result.secure_url,   // short intro
-      videoUrl,                        // full video URL (string)
+      introVideo: videoResult.secure_url,
+      videoUrl,
+      pdf: pdfResult ? pdfResult.secure_url : null, // ✅ save PDF URL
     });
 
     await newVideo.save();
@@ -41,6 +52,7 @@ exports.createVideo = async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
 
 // @desc   Get all videos
 // @route  GET /api/videos

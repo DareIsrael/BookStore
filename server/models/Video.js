@@ -6,6 +6,7 @@ const videoSchema = new mongoose.Schema(
     description: { type: String },
     introVideo: { type: String }, // Cloudinary image
     videoUrl: { type: String },  // actual hosted video link (optional, sent later)
+    pdf: { type: String },
     price: { type: Number, required: true },
     currency: { type: String, default: "usd" }
   },
