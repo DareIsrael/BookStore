@@ -65,48 +65,57 @@
   transform: scale(1.02);
 }
 
-.imageOverlay {
+/* Badges Container */
+.badgesContainer {
   position: absolute;
   top: 15px;
   left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 10;
+  gap: 10px;
+}
+
+.imageOverlay {
+  display: flex;
 }
 
 .bestsellerBadge {
   background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
   color: #2c3e50;
-  padding: 8px 15px;
+  padding: 6px 12px;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  white-space: nowrap;
 }
 
 /* PDF Download Tag Styles */
 .pdfTag {
-  position: absolute;
-  top: 15px;
-  right: 20px;
   background: linear-gradient(135deg, #D4AF37 0%, #b8941f 100%);
   color: white;
-  padding: 5px 10px;
-  border-radius: 25px;
+  padding: 6px 12px;
+  border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
   display: flex;
   align-items: center;
-  gap: 8px;
-  z-index: 20;
+  gap: 6px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
 }
 
 .pdfTag:hover {
   background: linear-gradient(135deg, #b8941f 0%, #9c7c1a 100%);
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.6);
   color: white;
   text-decoration: none;
 }
@@ -116,25 +125,24 @@
 }
 
 .pdfIcon {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .pdfText {
   letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
 }
 
 /* Subtle pulse animation for PDF tag */
 @keyframes subtlePulse {
   0%, 100% { 
     transform: scale(1); 
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
   }
   50% { 
     transform: scale(1.05); 
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.6);
   }
 }
 
@@ -506,16 +514,25 @@
     grid-template-columns: repeat(2, 1fr);
   }
   
-  /* PDF Tag responsive adjustments */
-  .pdfTag {
-    top: 15px;
-    right: 15px;
-    padding: 8px 12px;
-    font-size: 0.8rem;
+  .badgesContainer {
+    top: 12px;
+    left: 12px;
+    right: 12px;
   }
   
-  .pdfText {
-    font-size: 0.75rem;
+  .bestsellerBadge {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+  
+  .pdfTag {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+  
+  .pdfIcon {
+    font-size: 0.7rem;
   }
 }
 
@@ -544,20 +561,25 @@
     grid-template-columns: 1fr;
   }
   
-  /* PDF Tag mobile adjustments */
+  .badgesContainer {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  .bestsellerBadge {
+    padding: 4px 8px;
+    font-size: 0.65rem;
+  }
+  
   .pdfTag {
-    top: 12px;
-    right: 12px;
-    padding: 6px 10px;
-    gap: 6px;
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    gap: 3px;
   }
   
   .pdfIcon {
-    font-size: 1rem;
-  }
-  
-  .pdfText {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 }
 
@@ -582,19 +604,38 @@
     flex-wrap: wrap;
   }
   
-  /* PDF Tag small mobile adjustments */
+  .badgesContainer {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+  
+  .bestsellerBadge {
+    padding: 3px 6px;
+    font-size: 0.6rem;
+  }
+  
   .pdfTag {
-    top: 10px;
-    right: 10px;
-    padding: 5px 8px;
-    gap: 4px;
+    padding: 3px 6px;
+    font-size: 0.6rem;
+    gap: 2px;
   }
   
   .pdfIcon {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
   
-  .pdfText {
-    font-size: 0.65rem;
+  /* For very small screens, stack badges vertically */
+  @media (max-width: 360px) {
+    .badgesContainer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    
+    .pdfTag {
+      align-self: flex-end;
+    }
   }
 }

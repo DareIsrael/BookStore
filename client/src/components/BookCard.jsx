@@ -203,7 +203,7 @@ export default function BookCard({ book }) {
   return (
     <div className={styles.card}>
       {/* PDF Download Tag (Top-Right) */}
-      {book.pdf && (
+      {/* {book.pdf && (
         <a
           href={book.pdf}
           download={`${book.name.replace(/\s+/g, '_')}.pdf`}
@@ -212,9 +212,9 @@ export default function BookCard({ book }) {
           title={`Download ${book.name} PDF`}
         >
           <span className={styles.pdfIcon}>📄</span>
-          <span className={styles.pdfText}>PDF</span>
+          <span className={styles.pdfText}>Download Resources</span>
         </a>
-      )}
+      )} */}
 
       {/* Book Cover Image */}
       {book.coverImage && (
