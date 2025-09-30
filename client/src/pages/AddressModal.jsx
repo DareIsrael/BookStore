@@ -203,7 +203,8 @@ const ModalPortal = ({ children }) => {
 
 export default function AddressModal({ isOpen, onClose, onSubmit, user }) {
   const [form, setForm] = useState({
-    name: user ? `${user.name}` : "",
+    // name: user ? `${user.name}` : "",
+    name: "",
     phone: "",
     street: "",
     city: "",

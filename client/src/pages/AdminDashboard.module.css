@@ -617,6 +617,76 @@
   animation: spin 1s linear infinite;
 }
 
+/* File Input Styles */
+.fileInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fileInputLabel {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.fileInput {
+  padding: 10px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.fileInput:hover {
+  border-color: #D4AF37;
+  background: #fffaf0;
+}
+
+.fileInput:focus {
+  outline: none;
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+}
+
+.fileName {
+  font-size: 0.85rem;
+  color: #666;
+  padding: 4px 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileHint {
+  color: #666;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* PDF Indicator in Book Cards */
+.pdfIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e8f5e8;
+  color: #2d7a2d;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.pdfIcon {
+  font-size: 1rem;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

@@ -43,8 +43,8 @@
 .imageSection {
   position: relative;
   width: 70%;
-
 }
+
 .imageContainer {
   position: relative;
   width: 100%;
@@ -79,6 +79,67 @@
   font-size: 0.8rem;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* PDF Download Tag Styles */
+.pdfTag {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: linear-gradient(135deg, #D4AF37 0%, #b8941f 100%);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 25px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.pdfTag:hover {
+  background: linear-gradient(135deg, #b8941f 0%, #9c7c1a 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+  color: white;
+  text-decoration: none;
+}
+
+.pdfTag:active {
+  transform: translateY(0) scale(1);
+}
+
+.pdfIcon {
+  font-size: 0.6rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.pdfText {
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+/* Subtle pulse animation for PDF tag */
+@keyframes subtlePulse {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  }
+  50% { 
+    transform: scale(1.05); 
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.pdfTag {
+  animation: subtlePulse 3s ease-in-out infinite;
 }
 
 .thumbnailGallery {
@@ -444,6 +505,18 @@
   .relatedBooks {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  /* PDF Tag responsive adjustments */
+  .pdfTag {
+    top: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .pdfText {
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -470,6 +543,22 @@
   .relatedBooks {
     grid-template-columns: 1fr;
   }
+  
+  /* PDF Tag mobile adjustments */
+  .pdfTag {
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  
+  .pdfIcon {
+    font-size: 1rem;
+  }
+  
+  .pdfText {
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -491,5 +580,21 @@
   
   .thumbnailGallery {
     flex-wrap: wrap;
+  }
+  
+  /* PDF Tag small mobile adjustments */
+  .pdfTag {
+    top: 10px;
+    right: 10px;
+    padding: 5px 8px;
+    gap: 4px;
+  }
+  
+  .pdfIcon {
+    font-size: 0.9rem;
+  }
+  
+  .pdfText {
+    font-size: 0.65rem;
   }
 }

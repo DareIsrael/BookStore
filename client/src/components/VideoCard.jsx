@@ -1,8 +1,84 @@
+// // src/components/VideoCard.jsx
+// import React, { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+// import CheckoutButton from "./CheckoutButton";
+// import styles from "./VideoCard.module.css"; // ✅ reuse same styles
+
+// export default function VideoCard({ video }) {
+//   const [currencySign, setCurrencySign] = useState("");
+
+//   useEffect(() => {
+//     if (video?.currency) {
+//       switch (video.currency.toLowerCase()) {
+//         case "usd":
+//           setCurrencySign("$");
+//           break;
+//         case "gbp":
+//           setCurrencySign("£");
+//           break;
+//         case "eur":
+//           setCurrencySign("€");
+//           break;
+//         case "cad":
+//           setCurrencySign("CA$");
+//           break;
+//         default:
+//           setCurrencySign("");
+//       }
+//     }
+//   }, [video]);
+
+//   return (
+//     <div className={styles.card}>
+//       {/* Video Intro Preview */}
+//       {video.introVideo ? (
+//         <video
+//           src={video.introVideo}
+//           controls
+//           className={styles.coverImage}
+//         />
+//       ) : (
+//         <div className={styles.noPreview}>No Preview Available</div>
+//       )}
+
+//       {/* Video Info */}
+//       <div className={styles.content}>
+//         <h3 className={styles.title}>{video.title}</h3>
+//         <p className={styles.description}>
+//           {video.description?.slice(0, 80)}...
+//         </p>
+//       </div>
+
+//       {/* Price and Actions Container */}
+//       <div className={styles.footer}>
+//         {video.price && (
+//           <div className={styles.priceContainer}>
+//             <span className={styles.price}>
+//               {currencySign}
+//               {video.price.toFixed(2)} {video.currency?.toUpperCase()}
+//             </span>
+//           </div>
+//         )}
+
+//         <div className={styles.actions}>
+//           <Link to={`/videos/${video._id}`} className={styles.previewLink}>
+//             Preview
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
 // src/components/VideoCard.jsx
+
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CheckoutButton from "./CheckoutButton";
 import styles from "./VideoCard.module.css"; // ✅ reuse same styles
+
 
 export default function VideoCard({ video }) {
   const [currencySign, setCurrencySign] = useState("");
@@ -10,20 +86,11 @@ export default function VideoCard({ video }) {
   useEffect(() => {
     if (video?.currency) {
       switch (video.currency.toLowerCase()) {
-        case "usd":
-          setCurrencySign("$");
-          break;
-        case "gbp":
-          setCurrencySign("£");
-          break;
-        case "eur":
-          setCurrencySign("€");
-          break;
-        case "cad":
-          setCurrencySign("CA$");
-          break;
-        default:
-          setCurrencySign("");
+        case "usd": setCurrencySign("$"); break;
+        case "gbp": setCurrencySign("£"); break;
+        case "eur": setCurrencySign("€"); break;
+        case "cad": setCurrencySign("CA$"); break;
+        default: setCurrencySign("");
       }
     }
   }, [video]);
@@ -32,13 +99,21 @@ export default function VideoCard({ video }) {
     <div className={styles.card}>
       {/* Video Intro Preview */}
       {video.introVideo ? (
-        <video
-          src={video.introVideo}
-          controls
-          className={styles.coverImage}
-        />
+        <video src={video.introVideo + "#t=0.1"} muted playsInline controls className={styles.coverImage} poster={video.introVideo + "#t=0.1"} />
       ) : (
         <div className={styles.noPreview}>No Preview Available</div>
+      )}
+
+      {/* ✅ PDF Download Link */}
+      {video.pdf && (
+        <a
+          href={video.pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.pdfDownload}
+        >
+          📕 Download PDF
+        </a>
       )}
 
       {/* Video Info */}
@@ -49,17 +124,15 @@ export default function VideoCard({ video }) {
         </p>
       </div>
 
-      {/* Price and Actions Container */}
+      {/* Price and Actions */}
       <div className={styles.footer}>
         {video.price && (
           <div className={styles.priceContainer}>
             <span className={styles.price}>
-              {currencySign}
-              {video.price.toFixed(2)} {video.currency?.toUpperCase()}
+              {currencySign}{video.price.toFixed(2)} {video.currency?.toUpperCase()}
             </span>
           </div>
         )}
-
         <div className={styles.actions}>
           <Link to={`/videos/${video._id}`} className={styles.previewLink}>
             Preview
