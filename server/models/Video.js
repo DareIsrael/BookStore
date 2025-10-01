@@ -8,7 +8,7 @@ const videoSchema = new mongoose.Schema(
     videoUrl: { type: String },  // actual hosted video link (optional, sent later)
     pdf: { type: String },
     price: { type: Number, required: true },
-    currency: { type: String, default: "usd" }
+    currency: { type: String, default: "gbp" }
   },
   { timestamps: true }
 );

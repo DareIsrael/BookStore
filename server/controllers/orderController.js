@@ -437,7 +437,7 @@ exports.createCheckoutSession = async (req, res) => {
 
         lineItems.push({
           price_data: {
-            currency: "usd",
+            currency: "gbp",
             product_data: { name: book.name, images: book.coverImage ? [book.coverImage] : [] },
             unit_amount: Math.round(book.price * 100),
           },
@@ -453,7 +453,7 @@ exports.createCheckoutSession = async (req, res) => {
 
         lineItems.push({
           price_data: {
-            currency: "usd",
+            currency: "gbp",
             product_data: { name: video.title, images: video.introVideo ? [video.introVideo] : [] },
             unit_amount: Math.round(video.price * 100),
           },
@@ -480,7 +480,7 @@ exports.createCheckoutSession = async (req, res) => {
       books: bookItems,
       videos: videoItems,
       totalAmount,
-      currency: "usd",
+      currency: "gbp",
       address: hasBook ? {
         name: address.name,
         // || `${req.user.firstName} ${req.user.lastName}`,
