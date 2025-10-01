@@ -322,7 +322,7 @@
   font-weight: 400;
 }
 
-.invitation {
+/* .invitation {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #666;
@@ -332,7 +332,7 @@
   border-radius: 12px;
   border-left: 4px solid #D4AF37;
   margin-top: 2rem;
-}
+} */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

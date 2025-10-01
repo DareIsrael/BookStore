@@ -116,9 +116,9 @@ export default function VideoList() {
           <p className={styles.subtitle}>
             My coaching helps women like you find clarity, build belief, create structure, and execute with discipline — all rooted in faith. Each package is designed to meet you where you are and guide you toward the life God is calling you to build.
           </p>
-          <p className={styles.invitation}>
+          {/* <p className={styles.invitation}>
             Whether you need a single clarity boost or long-term accountability, there's a package here for you. Choose the one that speaks to your season — and let's walk this journey together, with God at the center.
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -127,7 +127,7 @@ export default function VideoList() {
         <div className={styles.introText}>
           <h2 className={styles.sectionTitle}>Featured Coaching Sessions</h2>
           <p className={styles.description}>
-            Each coaching session is crafted to provide clarity, build faith, and create practical steps toward your God-given purpose. From breakthrough moments to ongoing growth, discover transformative content that aligns your life with divine calling.
+            Whether you need a single clarity boost or long-term accountability, there's a package here for you. Choose the one that speaks to your season — and let's walk this journey together, with God at the center.
           </p>
         </div>
 
