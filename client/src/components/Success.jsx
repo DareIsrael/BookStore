@@ -134,7 +134,7 @@ export default function Success() {
                   <span>
                     {item.bookId?.title || item.name || "Unknown Book"} × {item.quantity}
                   </span>
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  <span>£{(item.price * item.quantity).toFixed(2)}</span>
                 </li>
               ))}
             </ul>

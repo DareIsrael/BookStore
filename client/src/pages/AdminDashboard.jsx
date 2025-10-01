@@ -2266,7 +2266,7 @@ const AdminDashboard = () => {
     author: "",
     description: "",
     price: "",
-    currency: "usd",
+    currency: "gbp",
     coverImage: null,
     pdf: null,
   });
@@ -2276,7 +2276,7 @@ const AdminDashboard = () => {
     title: "",
     description: "",
     price: "",
-    currency: "usd",
+    currency: "gbp",
     introVideo: null,
     videoUrl: "",
     pdf: null, // Added PDF for videos
@@ -2371,12 +2371,12 @@ const AdminDashboard = () => {
   };
 
   const formatDate = (dateString) =>
-    new Date(dateString).toLocaleDateString("en-US");
+    new Date(dateString).toLocaleDateString("en-GB");
 
   const formatCurrency = (amount) =>
-    new Intl.NumberFormat("en-US", {
+    new Intl.NumberFormat("en-GB", {
       style: "currency",
-      currency: "USD",
+      currency: "GBP",
     }).format(amount);
 
   // --- Books ---
@@ -2427,7 +2427,7 @@ const AdminDashboard = () => {
         author: "",
         description: "",
         price: "",
-        currency: "usd",
+        currency: "gbp",
         coverImage: null,
         pdf: null,
       });
@@ -2516,7 +2516,7 @@ const AdminDashboard = () => {
         title: "",
         description: "",
         price: "",
-        currency: "usd",
+        currency: "gbp",
         introVideo: null,
         videoUrl: "",
         pdf: null,
@@ -2681,7 +2681,7 @@ const AdminDashboard = () => {
                       author: "", 
                       description: "", 
                       price: "", 
-                      currency: "usd", 
+                      currency: "gbp", 
                       coverImage: null,
                       pdf: null 
                     }); 
@@ -2806,7 +2806,7 @@ const AdminDashboard = () => {
                             author: "", 
                             description: "", 
                             price: "", 
-                            currency: "usd", 
+                            currency: "gbp", 
                             coverImage: null,
                             pdf: null 
                           }); 
@@ -2870,7 +2870,7 @@ const AdminDashboard = () => {
                       title: "", 
                       description: "", 
                       price: "", 
-                      currency: "usd", 
+                      currency: "gbp", 
                       introVideo: null, 
                       videoUrl: "",
                       pdf: null 
@@ -2995,7 +2995,7 @@ const AdminDashboard = () => {
                             title: "", 
                             description: "", 
                             price: "", 
-                            currency: "usd", 
+                            currency: "gbp", 
                             introVideo: null, 
                             videoUrl: "",
                             pdf: null 

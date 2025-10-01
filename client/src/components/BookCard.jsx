@@ -202,20 +202,7 @@ export default function BookCard({ book }) {
 
   return (
     <div className={styles.card}>
-      {/* PDF Download Tag (Top-Right) */}
-      {/* {book.pdf && (
-        <a
-          href={book.pdf}
-          download={`${book.name.replace(/\s+/g, '_')}.pdf`}
-          onClick={handlePdfDownload}
-          className={styles.pdfTag}
-          title={`Download ${book.name} PDF`}
-        >
-          <span className={styles.pdfIcon}>📄</span>
-          <span className={styles.pdfText}>Download Resources</span>
-        </a>
-      )} */}
-
+      
       {/* Book Cover Image */}
       {book.coverImage && (
         <img
@@ -255,3 +242,53 @@ export default function BookCard({ book }) {
     </div>
   );
 }
+
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import styles from "./BookCard.module.css";
+
+// export default function BookCard({ book }) {
+//   const handlePdfDownload = (e) => {
+//     console.log(`Downloading PDF for: ${book.name}`);
+//   };
+
+//   return (
+//     <div className={styles.card}>
+//       {/* Book Cover Image */}
+//       {book.coverImage && (
+//         <img
+//           src={book.coverImage}
+//           alt={`Cover of ${book.name}`}
+//           className={styles.coverImage}
+//         />
+//       )}
+
+//       {/* Book Info */}
+//       <div className={styles.content}>
+//         <h3 className={styles.title}>{book.name}</h3>
+//         <p className={styles.author}>By {book.author}</p>
+//         <p className={styles.description}>
+//           {book.description?.slice(0, 80)}...
+//         </p>
+//       </div>
+
+//       {/* Price and Actions */}
+//       <div className={styles.footer}>
+//         {book.price && (
+//           <div className={styles.priceContainer}>
+//             <span className={styles.price}>
+//               £{book.price.toFixed(2)}  {/* 👈 Always GBP */}
+//             </span>
+//             <span className={styles.currency}>GBP</span>
+//           </div>
+//         )}
+
+//         <div className={styles.actions}>
+//           <Link to={`/books/${book._id}`} className={styles.previewLink}>
+//             Preview
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

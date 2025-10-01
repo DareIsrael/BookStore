@@ -296,7 +296,7 @@ export default function Orders() {
                     {order.paymentStatus}
                   </span>
                   <div className={styles.amount}>
-                    ${order.totalAmount?.toFixed(2)} <span>USD</span>
+                    £{order.totalAmount?.toFixed(2)} <span>GBP</span>
                   </div>
                 </div>
               </div>
@@ -323,10 +323,10 @@ export default function Orders() {
                           <div className={styles.bookDetails}>
                             <div className={styles.bookMeta}>
                               <span>Qty: {bookItem.quantity}</span>
-                              <span>Price: ${bookItem.price}</span>
+                              <span>Price: £{bookItem.price}</span>
                             </div>
                             <div className={styles.bookPrice}>
-                              ${(bookItem.price * bookItem.quantity).toFixed(2)}
+                              £{(bookItem.price * bookItem.quantity).toFixed(2)}
                             </div>
                           </div>
                         </div>

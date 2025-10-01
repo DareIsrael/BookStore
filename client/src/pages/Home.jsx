@@ -869,7 +869,7 @@ const Home = () => {
                       <h3>{book.name}</h3>
                       <p className={styles.productDescription}>{book.description?.slice(0, 100)}...</p>
                       <div className={styles.productActions}>
-                        <span className={styles.productPrice}>${book.price || '19.99'}</span>
+                        <span className={styles.productPrice}>£{book.price || '19.99'}</span>
                         <Link to={`/books/${book._id}`} className={styles.previewLink}>
                           Preview
                         </Link>

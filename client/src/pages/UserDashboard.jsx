@@ -598,7 +598,7 @@ const UserDashboard = () => {
               <span>💰</span>
             </div>
             <div className={styles.statContent}>
-              <h3>${totalSpent.toFixed(2)}</h3>
+              <h3>£{totalSpent.toFixed(2)}</h3>
               <p>Total Spent</p>
             </div>
           </div>
