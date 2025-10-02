@@ -597,13 +597,16 @@
   .actionButtons {
     flex-direction: column;
     gap: 15px;
+    align-items: center;
   }
   
   .goldButton,
   .whiteButton {
-    min-width: 100%;
+    min-width: auto;
+    width: 80%;
     padding: 14px 28px;
     font-size: 1rem;
+    text-align: center;
   }
 }
 
