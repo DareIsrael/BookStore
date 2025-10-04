@@ -789,14 +789,14 @@ const Home = () => {
             <h2 className={styles.sectionTitle}>Meet <span>Winifred</span></h2>
             <hr></hr>
             <div className={styles.introText}>
+             <p>
+               Hi, I’m Winifred — a wife, mom to two little lights of the world, and a Goal Coach for godly ambitious women. I help women gain clarity, build belief, and create structure that fits their real life, so they can align with purpose and achieve their goals with grace.
+             </p> 
+             <p>
+              Alongside coaching, I also create Christ-centered books and resources that help children discover their identity in Christ — a passion born from years of serving as a volunteer kids’ educator in church.
+             </p>
               <p>
-                I'm Winifred — a wife, a mom to two little lights of the world, a Goal Coach for godly ambitious women, and the author of Christian kids' books that spread God's love and light.
-              </p>
-              <p>
-                As a volunteer kids' educator in church, I've seen firsthand how open little hearts are to God's truth. That's why I create resources that make Scripture fun, simple, and alive — helping every child see their true identity in Christ and supporting parents in raising faith-filled kids.
-              </p>
-              <p>
-                At the core, I'm just a woman who loves Jesus and wants to pass His light on to the next generation.
+                At my core, I’m a woman who loves Jesus, loves people, and believes in equipping women and children to shine as lights in the world.
               </p>
             </div>
             

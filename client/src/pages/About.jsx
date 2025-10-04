@@ -34,23 +34,27 @@ const About = () => {
             <h2 className={styles.sectionTitle}>My Story</h2>
             <div className={styles.aboutText}>
               <p>
-                Hi, I'm Winifred — a wife, a mom to two little lights of the world, a Goal Coach for godly ambitious women, and an author passionate about helping children discover who they are in Christ.
+                Hi, I’m Winifred — a wife, a mom to two little lights of the world, and a Goal Coach for godly ambitious women. My mission is to help women gain clarity, build belief, embrace discipline, and align with their God-given purpose so they can rise with confidence and live fulfilled lives.
+
               </p>
               <p>
-                My story is deeply rooted in faith. From a young age, I've believed that our lives are meant to shine as lights for God, and I've carried that conviction into motherhood, ministry, and my work.
+                My story is rooted in faith. From a young age, I believed our lives were meant to shine as lights for God, and I’ve carried that conviction into motherhood, ministry, and coaching. Today, I walk alongside women who know they’re called to more but need structure, support, and strategy to get there — without losing sight of who they are in Christ.
+
               </p>
               <p>
-                As a volunteer kids' educator in church, I've had the privilege of teaching little ones about God's Word in simple, creative, and joyful ways. It's there, sitting on the floor with crayons, storybooks, and Bible verses, that I saw how children's hearts are wide open to God's truth. This experience sparked my passion for creating Christ-centered resources that help families disciple their children at home.
+                I also serve as a volunteer kids’ educator in church, and it was there that my love for children’s discipleship grew. That passion later inspired me to create Christ-centered books and resources that help families introduce little ones to their true identity in Christ.
+
               </p>
               <p>
-                Through my Christian kids' books — from coloring books to A–Z Bible name stories — my mission is to make God's Word fun, memorable, and alive for children, while supporting parents in their role as spiritual nurturers.
+                Through my frameworks and one-on-one work, I help ambitious women move from scattered to focused, from uncertain to clear, and from overwhelmed to aligned. Because when women rise in clarity and purpose, they not only transform their own lives but also influence their families, communities, and the next generation.
+
               </p>
               <p>
-                Beyond children's ministry, I also serve as a Goal Coach for women of faith. I help godly ambitious women gain clarity, build belief, embrace discipline, and align with their God-given purpose — because when mothers and women rise in Christ, they pass that light on to the next generation.
+               At the heart of everything, I’m a woman who loves Jesus, loves people, and believes in building a life that is both purposeful and impactful.
               </p>
-              <p>
+              {/* <p>
                 At the heart of it all, I'm just a woman who loves Jesus, loves people, and believes every child deserves to know they are chosen, loved, and created with a divine purpose.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
