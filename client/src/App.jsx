@@ -49,12 +49,14 @@ import Success from "./pages/Success";
 import AdminDashboard from "./pages/AdminDashboard";
 import VideoList from "./pages/VideoList";
 import VideoDetails from "./pages/VideoDetails";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Navbar />
+        <ScrollToTop />
         <div className="mainContainer">
           <Routes>
             <Route path="/" element={<Home />} />
