@@ -4,7 +4,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
-const SpinUp = require("./SpinUp")()
+// const SpinUp = require("./SpinUp")()
 
 dotenv.config();
 const userRoutes = require("./routes/User");
