@@ -1330,20 +1330,30 @@ export default function BookDetails() {
               </div>
               
               {/* PDF Download Tag */}
-              {book.pdf && (
-                <a
-                  href={book.pdf}
-                  download={`${book.name.replace(/\s+/g, '_')}.pdf`}
-                  onClick={handlePdfDownload}
-                  className={styles.pdfTag}
-                  title={`Download ${book.name} PDF`}
-                  data-aos="zoom-in"
-                  data-aos-delay="300"
-                >
-                  <span className={styles.pdfIcon}>📄</span>
-                  <span className={styles.pdfText}>Download Resources</span>
-                </a>
-              )}
+            {book.pdf && (
+  <a
+    href={book.pdf.replace("/upload/", "/upload/fl_attachment/")}
+    download={`${book.name.replace(/\s+/g, "_")}.pdf`}
+    className={styles.pdfTag}
+    title={`Download ${book.name} PDF`}
+    data-aos="zoom-in"
+    data-aos-delay="300"
+    onClick={(e) => {
+      e.preventDefault();
+      const link = document.createElement("a");
+      link.href = book.pdf.replace("/upload/", "/upload/fl_attachment/");
+      link.setAttribute("download", `${book.name.replace(/\s+/g, "_")}.pdf`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }}
+  >
+    <span className={styles.pdfIcon}>📄</span>
+    <span className={styles.pdfText}>Download Resources</span>
+  </a>
+)}
+
+
             </div>
           </div>
         </div>

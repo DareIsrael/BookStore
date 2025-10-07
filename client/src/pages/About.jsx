@@ -14,7 +14,7 @@ const About = () => {
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>About Winifred</h1>
-          <p className={styles.heroSubtitle}>Mom, Author, and Goal Coach for Women of Faith</p>
+          <p className={styles.heroSubtitle}>Wife, Mom, Goal Coach to ambitious Women</p>
         </div>
       </section>
 
