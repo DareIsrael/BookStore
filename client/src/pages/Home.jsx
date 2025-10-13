@@ -1352,18 +1352,20 @@ const settings = {
   dots: true,
   infinite: true,
   autoplay: true,
-  speed: 1000,
+  speed: 800,
   swipeToSlide: true,
   autoplaySpeed: 2000,
-  slidesToShow: 3,
+  slidesToShow: 1, // Always 1 on all screens for simplicity
   slidesToScroll: 1,
   arrows: false,
   pauseOnHover: true,
+  centerMode: false, // Disable center mode completely
+  centerPadding: "0px",
   responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
       }
     },
@@ -1373,17 +1375,10 @@ const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
       }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true
-      }
     }
   ]
 };
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -1684,7 +1679,7 @@ const settings = {
       </section>
 
       {/* Testimonials Section */}
-      <section className={styles.testimonialsSection}>
+  <section className={styles.testimonialsSection}>
   <div className={styles.testimonialsContent}>
     <h2 className={styles.sectionTitle} data-aos="fade-up">What Parents Are Saying</h2>
     <hr className={styles.goldDivider}></hr>
@@ -1695,14 +1690,12 @@ const settings = {
     <div className={styles.testimonialsSliderContainer}>
       <Slider {...settings} className={styles.testimonialsSlider}>
         {testimonials.map((testimonial, index) => (
-          <div key={testimonial.id}>
-            <div 
-              className={styles.testimonialCard}
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-            >
+          <div key={testimonial.id} className={styles.slideItem}>
+            <div className={styles.testimonialCard}>
               <div className={styles.testimonialIcon}>❝</div>
-              <div className={styles.testimonialText}>"{testimonial.text}"</div>
+              <div className={styles.testimonialText}>
+                "{testimonial.text}"
+              </div>
               <div className={styles.testimonialAuthor}>
                 <strong>{testimonial.name}</strong>
                 <span>{testimonial.role}</span>
