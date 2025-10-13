@@ -50,6 +50,9 @@ import AdminDashboard from "./pages/AdminDashboard";
 import VideoList from "./pages/VideoList";
 import VideoDetails from "./pages/VideoDetails";
 import ScrollToTop from "./components/ScrollToTop";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 function App() {
   return (

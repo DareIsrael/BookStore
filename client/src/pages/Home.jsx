@@ -1339,8 +1339,7 @@ import axios from "../services/api";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import VideoCard from "../components/VideoCard"; // Import your VideoCard component
 
 const Home = () => {
@@ -1681,7 +1680,7 @@ const settings = {
       {/* Testimonials Section */}
   <section className={styles.testimonialsSection}>
   <div className={styles.testimonialsContent}>
-    <h2 className={styles.sectionTitle} >What Parents Are Saying</h2>
+    <h2 className={styles.sectionTitle} data-aos="fade-up">What Parents Are Saying</h2>
     <hr className={styles.goldDivider}></hr>
     <p className={styles.sectionSubtitle} >
       Hear from families who have used our resources
