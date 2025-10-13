@@ -623,7 +623,13 @@
   .headline {
     font-size: 2rem;
   }
-  
+  .scrollIndicator{
+    display: none;
+  }
+
+  .scrollArrow {
+    display: none;
+  }
   .subheadline {
     font-size: 1.2rem;
   }
@@ -731,6 +737,13 @@
     font-size: 1.8rem;
   }
   
+  .scrollIndicator{
+    display: none;
+  }
+
+  .scrollArrow {
+    display: none;
+  }
   .subheadline {
     font-size: 1.1rem;
   }
