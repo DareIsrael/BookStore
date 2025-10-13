@@ -1681,9 +1681,9 @@ const settings = {
       {/* Testimonials Section */}
   <section className={styles.testimonialsSection}>
   <div className={styles.testimonialsContent}>
-    <h2 className={styles.sectionTitle} data-aos="fade-up">What Parents Are Saying</h2>
+    <h2 className={styles.sectionTitle} >What Parents Are Saying</h2>
     <hr className={styles.goldDivider}></hr>
-    <p className={styles.sectionSubtitle} data-aos="fade-up" data-aos-delay="100">
+    <p className={styles.sectionSubtitle} >
       Hear from families who have used our resources
     </p>
     
