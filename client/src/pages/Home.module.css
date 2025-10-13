@@ -680,14 +680,36 @@
   
   .testimonialsSliderContainer {
     padding: 20px 0 50px 0;
+    align-items: center;
   }
   
-  .testimonialCard {
+  /* .testimonialCard {
     padding: 25px 20px;
     min-height: 220px;
     margin: 0 5px;
     width: calc(100% - 10px);
-  }
+  } */
+
+  .testimonialCard {
+  padding: 25px 20px;
+  min-height: 220px;
+  margin: 0 auto;             /* centers properly */
+  width: 90%;                 /* use percentage instead of calc() */
+  max-width: 350px;           /* optional limit for better scaling */
+  box-sizing: border-box;
+  overflow: visible;          /* ensure nothing gets cut off */
+}
+
+.slick-slide {
+  display: flex !important;   /* centers slide content */
+  justify-content: center;
+  align-items: stretch;
+}
+
+.slick-list {
+  overflow: visible !important; /* prevent clipping at the edges */
+}
+
   
   .testimonialText {
     font-size: 1rem;
@@ -728,13 +750,13 @@
   
   /* SMALL MOBILE TESTIMONIAL FIXES */
   .testimonialCard {
-    padding: 20px 15px;
+    padding: 10px 10px;
     min-height: 200px;
   }
   
   .testimonialText {
-    font-size: 0.95rem;
-    line-height: 1.4;
+    font-size: 0.8rem;
+    line-height: 1.3;
   }
   
   .testimonialIcon {
