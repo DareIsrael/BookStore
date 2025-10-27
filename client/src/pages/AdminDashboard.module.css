@@ -190,6 +190,25 @@
   color: #721c24; 
 }
 
+.completed {
+  background-color: #e6ffef;
+  color: #08660d;
+  border: 1px solid rgba(6, 102, 13, 0.12);
+}
+
+.pending {
+  background-color: #fff7e6;
+  color: #8a5b00;
+  border: 1px solid rgba(138, 91, 0, 0.12);
+}
+
+.failed {
+  background-color: #fff1f2;
+  color: #8a0b14;
+  border: 1px solid rgba(138, 11, 20, 0.12);
+}
+
+
 .orderCard p {
   margin: 8px 0;
   color: #666;
@@ -770,3 +789,5 @@
     padding: 15px;
   }
 }
+
+

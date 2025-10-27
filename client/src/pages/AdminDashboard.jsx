@@ -2616,6 +2616,8 @@ const AdminDashboard = () => {
                   <p><strong>Date:</strong> {formatDate(order.createdAt)}</p>
                   <p><strong>Total:</strong> {formatCurrency(order.totalAmount)}</p>
                   <p><strong>Items:</strong> {order.books?.length || 0} book(s)</p>
+                  {/* <p><strong>Payment Status:</strong> {order.paymentStatus}</p> */}
+                  <p><strong>Payment Status:</strong> <span className={`${styles.status} ${styles[order.paymentStatus]}`}>{order.paymentStatus}</span></p>
                   <div className={styles.orderActions}>
                     <select value={order.orderStatus} onChange={(e) => updateOrderStatus(order._id, e.target.value)}>
                       <option value="processing">Processing</option>
@@ -3051,6 +3053,7 @@ const AdminDashboard = () => {
                 <p><strong>Email:</strong> {selectedOrder.userId?.email || "N/A"}</p>
                 <p><strong>Order Date:</strong> {formatDate(selectedOrder.createdAt)}</p>
                 <p><strong>Status:</strong> <span className={`${styles.status} ${styles[selectedOrder.orderStatus]}`}>{selectedOrder.orderStatus}</span></p>
+                <p><strong>Payment Status:</strong> <span className={`${styles.status} ${styles[selectedOrder.paymentStatus]}`}>{selectedOrder.paymentStatus}</span></p>
               </div>
 
               <div className={styles.detailSection}>

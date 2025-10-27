@@ -176,7 +176,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .card {
-    max-width: 300px;
+    max-width: 600px;
     margin: 0 auto;
   }
   
