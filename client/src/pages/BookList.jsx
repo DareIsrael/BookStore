@@ -71,7 +71,7 @@ export default function BookList() {
     setLoading(true);
     axios.get("/books")
       .then(res => {
-        console.log("API response:", res.data);
+        // console.log("API response:", res.data);
         // Handle different response structures
         const booksData = res.data.data || res.data || [];
         setBooks(booksData);

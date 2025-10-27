@@ -1452,7 +1452,7 @@ const settings = {
         } else if (res.data.books && Array.isArray(res.data.books)) {
           setBooks(res.data.books);
         } else {
-          console.error("Unexpected API response structure:", res.data);
+          // console.error("Unexpected API response structure:", res.data);
           setBooks([]);
         }
         
@@ -1473,7 +1473,7 @@ const settings = {
     const fetchVideos = async () => {
       try {
         const res = await axios.get("/videos");
-        console.log("Videos API response:", res.data);
+        // console.log("Videos API response:", res.data);
         
         // Handle different response structures for videos
         const videosData = res.data.data || res.data || [];

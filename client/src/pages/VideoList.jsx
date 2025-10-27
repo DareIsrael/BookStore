@@ -94,7 +94,7 @@ export default function VideoList() {
     axios
       .get("/videos")
       .then((res) => {
-        console.log("API response:", res.data);
+        // console.log("API response:", res.data);
         const videosData = res.data.data || res.data || [];
         setVideos(videosData);
       })
