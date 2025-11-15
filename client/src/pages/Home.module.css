@@ -1,4 +1,4 @@
-/* Home.module.css */
+Home.module.css
 
 /* Global Styles */
 .container {
@@ -11,6 +11,7 @@
 /* Hero Section */
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dvntutcf4/image/upload/f_jpg/v1757511781/A1B78230-C871-407D-A416-9DCB6374AE92_xtch80.heic');
+  
   background-size: cover;
   background-attachment: fixed;
   background-position: 50% 20%;
@@ -618,6 +619,7 @@
   .hero {
     height: 80vh;
     min-height: 500px;
+    background-attachment: scroll;
   }
   
   .headline {
