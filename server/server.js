@@ -15,6 +15,9 @@ const videoRoutes = require("./routes/videos");
 const adminSummaryRoutes = require("./routes/adminSummaryRoutes");
 const contactRoutes = require('./routes/contact');
 const healthRoutes = require("./routes/health");
+const sitemapRoute = require("./routes/sitemap");
+
+
 
 
 
@@ -41,6 +44,7 @@ app.use("/videos", videoRoutes)
 // app.use("/api/admin", AdminDashboard);
 app.use("/admin/summary", adminSummaryRoutes);
 app.use('/contact', contactRoutes);
+app.use("/", sitemapRoute);
 app.use("/health", healthRoutes);
 
 app.use((err, req, res, next) => {
