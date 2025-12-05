@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/sitemap.xml",
-      "destination": "https://bookstore-8b3d.onrender.com//sitemap.xml"
+      "destination": "https://bookstore-8b3d.onrender.com/sitemap.xml"
     },
     {
       "source": "/(.*)",
